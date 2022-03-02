@@ -23,7 +23,7 @@
         }
     </style>
 
-    <model-viewer id= "aftr-demo" src="https://github.io/HearAFTR/AFTRAR/assets/AFTR_AR5.glb" ios-src="https://github.io/HearAFTR/AFTRAR/assets/AFTR_AR5.usdz" alt="Audible Feedback Training Round" ar ar-modes="webxr scene-viewer quick-look" environment-image="neutral" shadow-intensity="1" camera-controls>
+    <model-viewer id= "aftr-demo" src="https://hearaftr.github.io/AFTRAR/assets/AFTR_AR5.glb" ios-src="https://hearaftr.github.io/AFTRAR/assets/AFTR_AR5.usdz" alt="Audible Feedback Training Round" ar ar-modes="webxr scene-viewer quick-look" environment-image="neutral" shadow-intensity="1" camera-controls>
     <div id="controls">
         <button onclick="myFunction()">Toggle View</button>
     </div>
@@ -34,8 +34,8 @@
         const modelViewer = document.querySelector('#aftr-demo');
         let j = 0;
         function myFunction() {
-            modelViewer.setAttribute('src' , `https://github.io/HearAFTR/AFTRAR/assets/${models[j++ % 5]}.glb`);
-            modelViewer.setAttribute('ios-src' , `https://github.io/HearAFTR/AFTRAR/assets/${models[j]}.usdz`);
+            modelViewer.setAttribute('src' , `https://hearaftr.github.io/AFTRAR/assets/${models[j++ % 5]}.glb`);
+            modelViewer.setAttribute('ios-src' , `https://hearaftr.github.io/AFTRAR/assets/${models[j]}.usdz`);
         }
     </script>
 </body>

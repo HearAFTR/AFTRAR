@@ -5,37 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Audio Feedback Training Round</title>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script type="module" src="util/model-viewer.min.js"></script>
 </head>
-<body>
+<body onkeydown="next_view(event)">
     <style>
         model-viewer{
-            width: auto;
-            height: 600px;
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
             margin: 0 auto;
-        }
-        #controls {
-            position: absolute;
-            bottom: 16px;
-            left: 50%;
-            -webkit-transform: translateX(-50%);
-            transform: translateX(-50%)
         }
     </style>
 
-    <model-viewer id= "aftr-demo" src="https://hearaftr.github.io/AFTRAR/assets/AFTR_AR5.glb" ios-src="https://hearaftr.github.io/AFTRAR/assets/AFTR_AR5.usdz" alt="Audible Feedback Training Round" ar ar-modes="webxr scene-viewer quick-look" environment-image="neutral" shadow-intensity="1" camera-controls>
-    <div id="controls">
-        <button onclick="myFunction()">Toggle View</button>
-    </div>
+    <model-viewer id= "aftr-demo" src="assets/AFTR_AR5.glb" ios-src="assets/AFTR_AR5.usdz" alt="Audible Feedback Training Round" ar ar-modes="webxr scene-viewer quick-look" environment-image="neutral" shadow-intensity="1" camera-controls>
     </model-viewer>
 
     <script>
         const models = ['AFTR_AR1' , 'AFTR_AR2' , 'AFTR_AR3' , 'AFTR_AR4' , 'AFTR_AR5']
         const modelViewer = document.querySelector('#aftr-demo');
         let j = 0;
-        function myFunction() {
-            modelViewer.setAttribute('src' , `https://hearaftr.github.io/AFTRAR/assets/${models[j++ % 5]}.glb`);
-            modelViewer.setAttribute('ios-src' , `https://hearaftr.github.io/AFTRAR/assets/${models[j]}.usdz`);
+        function next_view() {
+            j = (j+1) % 5;
+            modelViewer.setAttribute('src' , `assets/${models[j]}.glb`);
+            modelViewer.setAttribute('ios-src' , `assets/${models[j]}.usdz`);
         }
     </script>
 </body>
